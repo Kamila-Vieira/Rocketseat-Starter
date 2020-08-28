@@ -1,0 +1,93 @@
+<html>
+    <head>
+        <title>Desafio</title>
+    </head>
+    <body>
+        <script>
+
+            // Exercício 1
+            function endereco(rua, numero, bairro, cidade, uf){
+                var frase = 'O usuário mora em ' + cidade + '/' + uf 
+                + ', no bairro ' + bairro + ', na rua ' + rua + ' com nº ' + numero + '.';
+
+                return frase;
+            }
+            var endereco = endereco('"Rua dos pinheiros"', 1293, "Centro", "São Paulo", "SP");
+            console.log('Exercício 1:', endereco);
+
+            // Exercício 2
+            function pares(x, y) {
+                for(var i=x; i<=y; i+=2){
+                    console.log('Exercício 2:', i);
+                }
+                return result;
+            }
+            var result = pares(32, 321);
+
+            // Exercício 3
+            var skills = ["Javascript", "ReactJS", "React Native"];
+            function temHabilidade(skills) {
+                if(skills.indexOf('"Javascript"', [])){
+                    return true;
+                } else {
+                    return false;
+                }
+            } 
+            console.log('Exercício 3:', temHabilidade(skills));
+
+            // Exercício 4
+            function experiencia(anos) {
+                if(anos >= 0 && anos < 1){
+                    return 'Iniciante';
+                } else if(anos >= 1 && anos < 3){
+                    return 'Intermediário';
+                } else if(anos >= 3 && anos <= 6){
+                    return 'Avançado';
+                } else {
+                    return 'Jedi Master'
+                }
+            }
+            var anosEstudo = 7;
+            var anos = experiencia(anosEstudo);
+            console.log('Exercício 4:', anos);
+
+            // Exercício 5
+            var usuarios = [
+                {
+                    nome: "Diego",
+                    habilidades: ["Javascript", "ReactJS", "Redux"]
+                },
+                {
+                    nome: "Gabriel",
+                    habilidades: ["VueJS", "Ruby on Rails", "Elixir"]
+                }
+            ];
+          
+            for(var usuario of usuarios){
+                    nome = usuario.nome;
+                    habilidades = usuario.habilidades.join(', ');
+                    console.log(usuario);
+            };
+
+            var usuarioDiego = usuario[0];
+            var usuarioGabriel = usuario[1];
+            
+            function user(usuario){
+                var frase = 'O ' + nome + ' possui as habilidades: ' + habilidades;
+                return frase;
+            }
+            
+            var fraseDiego = user(usuarioDiego);
+            var fraseGabriel = user(usuarioGabriel);
+            
+            console.log('Exercício 5.1:', fraseDiego);
+            console.log('Exercício 5.2:', fraseGabriel);
+
+            
+            //console.log('Exercício 5:', diegoSkills);
+            //var diegoFrase = 'O ' + nome + ' possui as habilidades: ' + diegoSkills.join(', ');
+            //O Diego possui as habilidades: Javascript, ReactJS, Redux
+            //O Gabriel possui as habilidades: VueJS, Ruby on Rails, Elixir
+        </script>
+    </body>
+</html>

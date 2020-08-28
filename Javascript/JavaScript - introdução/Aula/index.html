@@ -1,0 +1,110 @@
+<html>
+    <head>
+        <title>Curso Javascript</title>
+    </head>
+    <body>
+        <script>
+            console.log('Boas vindas:',"Hellooooo Beautiful Word");
+            // Variáveis primitivas
+            var nome = "kamila";
+            var idade = 22;
+            var peso = 100.00;
+            var humano = true;
+            // Variáveis de array
+            var alunos = ["kamila", "james", "dandara"];
+            // Variáveis de objeto
+            var aluno = {
+                nome,
+                idade,
+                peso,
+                humano
+            };
+            console.log('Aula 1.1:', aluno);
+            console.log('Aula 1.2:', alunos[1]);
+
+            // Operações matemáticas
+            var x = 10, y = 5;
+            var resultado = x % y;
+            console.log('Aula 2.1:', resultado);
+            x = x % 7;
+            x += y;
+            console.log('Aula 2.2:', x);
+
+            //Funções
+            function soma(num1, num2) {
+                var result = num1 + num2;
+                return result;
+            }
+            var result = soma(2, 3);
+            console.log('Aula 3:', result);
+            
+            // Condicionais
+            function retornaSexoIf(sexo) {
+                if(sexo === 'M') {
+                    return 'Masculino';
+                } else if(sexo ==='F') {
+                    return 'Feminino'
+                } else {
+                    return 'Outro';
+                }
+            }
+            var sexo = retornaSexoIf('m');
+            console.log('Aula 4.1:', sexo);
+
+            function retornaSexoSwitch(sexo) {
+                switch(sexo){
+                    case 'M':
+                        return 'Masculino';
+                    case 'F':
+                        return 'Feminino';
+                    default:
+                        return 'Outro';
+                }
+            }
+            var sexo = retornaSexoSwitch('F');
+            console.log('Aula 4.2:', sexo);
+            
+            // Operadores Lógicos
+            var sexo = 'M', idade = 22;
+            if(sexo === 'M' || idade <=18 ) {
+                console.log('Aula 5.1:', 'Certinho, Sexo é marculino OU é menor de 18 anos!');
+            }
+            if(sexo === 'M' && idade >=18 ) {
+                console.log('Aula 5.2:', 'Certinho, Sexo é marculino E é maior de 18 anos!');
+            }
+            if(sexo !== 'F') {
+                console.log('Aula 5.3:', 'Sexo NÃO é feminino!');
+            }
+            var masculino = (sexo === 'M');
+            console.log('Aula 5.4:', masculino);
+            
+            // Condição ternária: somente um if/else ou condição de linha ou simples
+            var idade = 22;
+            var verificaIdade = (idade >= 18) ? 'Maior de idade' : 'Menor de idade';
+            console.log('Aula 6.1:', verificaIdade);
+
+            //Estruturas de repetição
+            for(var i=0; i <=5; i++){
+                console.log('Aula 7.1:', i);
+            }  
+            var j = 0;
+            while(j <= 5){
+                console.log('Aula 7.2:', j);
+                j++;
+            }
+            var j = 19920590;
+            while(j > 50){
+                console.log('Aula 7.3:', j);
+                j/=5;
+            }
+
+            // Intervalos e timeout
+            function mostarEm5Segundos(){
+                console.log('Aula 8.1:', 'Olárrrr!')
+            }
+            setTimeout(mostarEm5Segundos, 5000);
+            setInterval(mostarEm5Segundos, 5000);
+
+        </script>
+    </body>
+</html>
