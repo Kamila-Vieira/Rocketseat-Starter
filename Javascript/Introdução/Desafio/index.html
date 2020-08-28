@@ -1,6 +1,6 @@
 <html>
     <head>
-        <title>Desafio</title>
+        <title>Desafio - Introdução</title>
     </head>
     <body>
         <script>
@@ -62,30 +62,35 @@
                     habilidades: ["VueJS", "Ruby on Rails", "Elixir"]
                 }
             ];
-          
-            for(var usuario of usuarios){
-                    nome = usuario.nome;
-                    habilidades = usuario.habilidades.join(', ');
-                    console.log(usuario);
-            };
+                
+            nomeDiego = usuarios[0].nome;
+            nomeGabriel = usuarios[1].nome;
+            habilidadesDiego = usuarios[0].habilidades.join(', ');
+            habilidadesGabriel = usuarios[1].habilidades.join(', ');
+                
+           /*  for(var first of usuarios){
+                nome1 = first;
+                for(var second of usuarios){
+                    //console.log('HEY', first);
+                }
+                console.log(first);
+            }; */
 
-            var usuarioDiego = usuario[0];
-            var usuarioGabriel = usuario[1];
-            
-            function user(usuario){
-                var frase = 'O ' + nome + ' possui as habilidades: ' + habilidades;
-                return frase;
+            function diego(usuario){
+                var fraseDiego = 'O ' + nomeDiego + ' possui as habilidades: ' + habilidadesDiego;
+                return fraseDiego;
             }
-            
-            var fraseDiego = user(usuarioDiego);
-            var fraseGabriel = user(usuarioGabriel);
+            function gabriel(usuario){
+                var fraseGabriel = 'O ' + nomeGabriel + ' possui as habilidades: ' + habilidadesGabriel;
+                return fraseGabriel;
+            }
+
+            var fraseDiego = diego();
+            var fraseGabriel = gabriel();
             
             console.log('Exercício 5.1:', fraseDiego);
             console.log('Exercício 5.2:', fraseGabriel);
 
-            
-            //console.log('Exercício 5:', diegoSkills);
-            //var diegoFrase = 'O ' + nome + ' possui as habilidades: ' + diegoSkills.join(', ');
             //O Diego possui as habilidades: Javascript, ReactJS, Redux
             //O Gabriel possui as habilidades: VueJS, Ruby on Rails, Elixir
         </script>

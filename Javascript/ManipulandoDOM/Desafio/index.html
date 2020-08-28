@@ -1,0 +1,101 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Desafio - Manipulando DOM</title>
+    </head>
+    <body> 
+        <div id="desafio-container">
+            
+            <div id="button-ex1">
+                <strong>Exercício 1: </strong>
+                <button>
+                    Click aqui!
+                </button>
+                <!-- Exercício 2 -->
+                <p>Agora passe o mouse!</p>
+                <p></p>
+            </div>
+            
+            <div id="lista-ex3">
+                <strong>Exercício 3: </strong>
+                <ul class="lista"></ul>
+            </div>
+
+            <div id="lista-ex4">
+                <strong>Exercício 4: </strong>
+                <form>
+                    <input type="text" name="nome">
+                    <input onClick="adicionar()" type="reset" value="Adicionar"></input>
+                </form>
+            </div>
+        </div>
+        
+
+        <script>
+
+            // Exercício 1
+            var buttonElement = document.querySelector('#button-ex1');
+            var listElement = document.querySelector('#lista-ex3');
+            
+            var desafioElements = document.querySelector('#desafio-container');
+            desafioElements.style.display = 'flex';
+            buttonElement.style.marginRight = '2rem';
+            listElement.style.marginRight = '2rem';
+            
+            buttonElement.onclick = function(){
+                var boxElement = document.createElement('div');
+                buttonElement.appendChild(boxElement);
+                boxElement.setAttribute('class', 'box');
+                boxElement.style.width = 100;
+                boxElement.style.height = 100;
+                boxElement.style.backgroundColor = '#f00';
+                boxElement.style.marginBottom = '2rem';
+
+                // Exercício 2
+                boxElement.onmouseover = function getRandomColor() {
+                    var letters = "0123456789ABCDEF";
+                    var color = "#";
+                    for (var i = 0; i < 6; i++) {
+                        color += letters[Math.floor(Math.random() * 16)];
+                    }
+                    boxElement.style.backgroundColor = (color);
+                    return color; 
+                }
+            }
+
+            // Exercício 3
+            var nomes = ["Diego", "Gabriel", "Lucas"];
+
+            for(var values of nomes){
+                //console.log(value);
+                var listElements = document.querySelector('.lista');
+                var itemElement = document.createElement('li');
+                var textElement = document.createTextNode(values);
+
+                itemElement.appendChild(textElement);
+                listElements.appendChild(itemElement);
+            };
+            // Exercício 4
+            function adicionar(){
+                var inputElement = document.querySelector('input[name=nome]');
+                var text = inputElement.value;
+                var listElements = document.querySelector('.lista');
+                var itemElement = document.createElement('li');
+                var textElement = document.createTextNode(text);
+                
+                itemElement.appendChild(textElement);
+                listElements.appendChild(itemElement);
+            }
+            
+            console.log(itemElement);
+
+            
+           
+
+            
+            
+            
+                
+        </script>
+    </body>
+</html>

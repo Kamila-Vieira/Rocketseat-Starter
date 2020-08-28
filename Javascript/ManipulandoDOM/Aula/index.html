@@ -1,0 +1,93 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Curso Javascript - Manipulando a DOM</title>
+    </head>
+    <body>
+        <!-- Eventos inline -->
+        <strong>Aula 1: Eventos inline</strong>
+        <div id="aulaUM">
+            <button onclick="mostraAlertaButton()">Me pressione</button>
+            <input onkeypress="mostraAlertaInput()"/>
+        </div>
+        <br/>
+        <!-- Trabalhando com a DOM -->
+        <strong>Aula 2: Trabalhando com a DOM</strong>
+        <div id="aulaDois">
+            <input type="text" name="nome" id="nome" />
+            <button class="botao">Adicionar</button>
+        </div>
+        <br/>
+        <!-- Lidando com elementos -->
+        <strong>Aula 3: Lidando com elementos</strong>
+        <div id="aulaTres">
+            <p>Sem JS</p>
+            <a href="https://rocketseat.com.br/" class="semJS">Acessar site da Rocketseat</a>
+            <p>Com JS</p>
+            <input id="input" />
+
+        </div>
+        <br/>
+        <!-- Alterando estilos -->
+        <strong>Aula 4: Alterando estilos </strong>
+        <div id="aulaQuatro">
+            <div class="box">
+
+            </div>
+        </div>
+
+        <script>
+            // Eventos inline
+            function mostraAlertaButton(){
+                alert('Botão foi clicado!');
+            }
+            function mostraAlertaInput(){
+                alert('Teclado foi pressionado!');
+            }
+
+            // Trabalhando com a DOM
+            var idElement = document.getElementById('nome');
+            console.log('Aula 2.1:', idElement);
+            var allElements = document.getElementsByTagName('input')[1];
+            console.log('Aula 2.2:', allElements);
+            var elementsClass = document.getElementsByClassName('botao')[0];
+            console.log('Aula 2.3:', elementsClass);
+            var queryElements = document.querySelector('div#aulaDois input');
+            console.log('Aula 2.4:', queryElements);
+            var queryElements2 = document.querySelector('button[class=botao]');
+            console.log('Aula 2.5:', queryElements2);
+            var queryAllElements = document.querySelectorAll('input');
+            console.log('Aula 2.6:', queryAllElements);
+
+            var inputElement = document.querySelector('input[name=nome]');
+            var btnElement = document.querySelector('button.botao');
+
+            btnElement.onclick = function() { 
+                var text = inputElement.value; 
+                alert('Botão Clicadíssimo! ' + text);
+            }
+
+            // Lidando com elementos
+            var linkElement = document.createElement('a');
+            linkElement.setAttribute('href', 'https://rocketseat.com.br/');
+            linkElement.setAttribute('class', 'comJS');
+            var textElement = document.createTextNode('Acessar site da Rocketseat');
+            linkElement.appendChild(textElement);
+          
+            var containerElement = document.querySelector('#aulaTres');
+            containerElement.appendChild(linkElement);
+
+            var inputElmt = document.querySelector('#input');
+            containerElement.removeChild(inputElmt);
+
+            console.log('Aula 3:',containerElement);
+
+             // Alterando estilos
+            var boxElement = document.querySelector('.box');
+            boxElement.style.width = 100;
+            boxElement.style.height = 100;
+            boxElement.style.backgroundColor = '#f00';
+
+        </script>
+    </body>
+</html>
