@@ -24,23 +24,23 @@ var listElement = document.querySelector('#app ul');
 var inputElement = document.querySelector('#app input');
 var buttonElement = document.querySelector('#app button');
 
-    var users = ["kamila-vieira"];
-    var api = 'https://api.github.com/users/' + users + '/repos';
+var users = ["kamila-vieira"];
+var api = 'https://api.github.com/users/' + users + '/repos';
     
-    axios.get(api)
+axios.get(api)
     .then((response) => {
         console.log('HEY:', response);
-        var arrayRepos = JSON.parse(response.data);
+        var arrayRepos = JSON.parse(response.data[name]);
         console.log('HEY:', arrayRepos);
     function renderUsers(){
-        
-        
         listElement.innerHTML = '';
+        for(repos of arrayRepos){
             var userElement = document.createElement('li');
-            var userText = document.createTextNode(response.data.name);
+            var userText = document.createTextNode(repos);
     
             userElement.appendChild(userText);
             listElement.appendChild(userElement);
+        }   
     }
     renderUsers();
     
