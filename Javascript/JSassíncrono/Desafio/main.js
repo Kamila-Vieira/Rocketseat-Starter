@@ -18,7 +18,7 @@ checkAge()
         console.warn('Exercício 1.2 (catch):', 'Menor de idade');
     });
 
-//Exercício 2
+//Exercício 2 e 3
 var listElement = document.querySelector('#app ul');
 var inputElement = document.querySelector('#app input');
 var buttonElement = document.querySelector('#app button');
@@ -35,21 +35,25 @@ axios.get(api)
 
     function renderUsers(){
         listElement.innerHTML = '';
+
         for(repos of arrayRepos){
-            var userElement = document.createElement('li');
-            var userText = document.createTextNode(repos.name);
+            var repoElement = document.createElement('li');
+            var repoText = document.createTextNode(repos.name);
     
-            userElement.appendChild(userText);
-            listElement.appendChild(userElement);
+            repoElement.appendChild(repoText);
+            listElement.appendChild(repoElement);
         }   
     }
     renderUsers();
     
     function AddUser() {
-        var userText = inputElement.value;
-        
-        users.push(userText);
-        inputElement.value = '';
+       
+        for(user of users){
+            var userText = inputElement.value;
+            users.push(userText);
+            inputElement.value = '';
+        }
+       
         renderUsers();  
     }
     buttonElement.onclick = AddUser;
@@ -58,3 +62,5 @@ axios.get(api)
     .catch((error) => {
         console.warn('Atenção:', error);
     });
+
+    console.log(users);
