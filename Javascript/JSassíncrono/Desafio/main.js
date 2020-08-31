@@ -19,7 +19,6 @@ checkAge()
     });
 
 //Exercício 2
-
 var listElement = document.querySelector('#app ul');
 var inputElement = document.querySelector('#app input');
 var buttonElement = document.querySelector('#app button');
@@ -29,14 +28,16 @@ var api = 'https://api.github.com/users/' + users + '/repos';
     
 axios.get(api)
     .then((response) => {
-        console.log('HEY:', response);
-        var arrayRepos = JSON.parse(response.data[name]);
+
+        var stringField = JSON.stringify(response.data);
+        var arrayRepos = JSON.parse(stringField);
         console.log('HEY:', arrayRepos);
+
     function renderUsers(){
         listElement.innerHTML = '';
         for(repos of arrayRepos){
             var userElement = document.createElement('li');
-            var userText = document.createTextNode(repos);
+            var userText = document.createTextNode(repos.name);
     
             userElement.appendChild(userText);
             listElement.appendChild(userElement);
@@ -51,9 +52,8 @@ axios.get(api)
         inputElement.value = '';
         renderUsers();  
     }
-    
     buttonElement.onclick = AddUser;
-        console.log('Aula 3:', response);
+    
     })
     .catch((error) => {
         console.warn('Atenção:', error);
