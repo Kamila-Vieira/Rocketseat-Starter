@@ -35,14 +35,16 @@ axios.get(api)
 
     function renderUsers(){
         listElement.innerHTML = '';
-
-        for(repos of arrayRepos){
-            var repoElement = document.createElement('li');
-            var repoText = document.createTextNode(repos.name);
-    
-            repoElement.appendChild(repoText);
-            listElement.appendChild(repoElement);
-        }   
+        for(user of users){
+            for(repos of arrayRepos){
+                var repoElement = document.createElement('li');
+                var repoText = document.createTextNode(repos.name);
+        
+                repoElement.appendChild(repoText);
+                listElement.appendChild(repoElement);
+            }
+        }
+           
     }
     renderUsers();
     
@@ -63,4 +65,4 @@ axios.get(api)
         console.warn('Atenção:', error);
     });
 
-    console.log(users);
+    //console.log(users);
