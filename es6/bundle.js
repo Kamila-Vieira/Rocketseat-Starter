@@ -34,7 +34,7 @@ var List = /*#__PURE__*/function () {
     key: "add",
     value: function add(data) {
       this.data.push(data);
-      console.log('3:', this.data);
+      console.log('AulaClasses_3:', this.data);
     }
   }]);
 
@@ -59,7 +59,7 @@ var TodoList = /*#__PURE__*/function (_List) {
   _createClass(TodoList, [{
     key: "mostraUsuario",
     value: function mostraUsuario() {
-      console.log('2:', this.usuario);
+      console.log('AulaClasses_2:', this.usuario);
     }
   }]);
 
@@ -88,22 +88,59 @@ var Matematica = /*#__PURE__*/function () {
   return Matematica;
 }();
 
-console.log('(Pressione Adicionar) | 1:', Matematica.soma(1, 3)); //Const & let
+console.log('AulaClasses_1 | (Pressione Adicionar):', Matematica.soma(1, 3)); //Const & let
 //const, diferente de var não se pode reatribuir valor. só se pode mutar(dentro de objetos{} e vetores[]):
 
 var usuario = {
   nome: 'Kamila'
 };
 usuario.nome = 'Diego';
-console.log('4:', usuario); //let, são variáveis de escopo não são visíveis fora da funcão por exemplo:
+console.log('AulaConst&Let_1:', usuario); //let, são variáveis de escopo não são visíveis fora da funcão por exemplo:
 
 function teste(x) {
   var y = 2;
 
   if (x > 5) {
-    console.log(x, 'e', y);
+    console.log('AulaConst&Let_2:', x, y);
   }
 }
 
-teste(7);
-console.log(y);
+teste(7); //console.log(y) não é possível fora da função
+//Operações em vetores
+
+var arr = [-3, 1, 3, 4, 6, 12, 56, 80];
+var newArr = arr.map(function (item, index) {
+  return item * 2 + index;
+}); // map percorre o array
+
+console.log('AulaOperacoesEmArray_1:', newArr);
+var sum = arr.reduce(function (total, next) {
+  return total + next;
+}); // reduce junta os valores do array
+
+console.log('AulaOperacoesEmArray_2:', sum);
+var filter = arr.filter(function (item) {
+  return item % 2 === 0;
+}); // filter filtra os valores, somente por meio de operadores lógicos (booleans):
+
+console.log('AulaOperacoesEmArray_3:', filter);
+var find = arr.find(function (item) {
+  return item === 4;
+}); // find busca os valores, também somente por meio de operadores lógicos (booleans):
+
+console.log('AulaOperacoesEmArray_4:', find); //Arrow Functions
+
+var vet = [1, 3, 4, 6, 12, 16, 18];
+var newVet = vet.map(function (item) {
+  return item * 2;
+});
+console.log('AulaArrowFunctions_1:', newVet);
+
+var testArrowFunction = function testArrowFunction() {
+  return {
+    nome: 'Kamila',
+    idade: 22
+  };
+};
+
+console.log('AulaArrowFunctions_2:', testArrowFunction());
