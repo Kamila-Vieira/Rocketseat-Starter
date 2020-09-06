@@ -143,4 +143,45 @@ var testArrowFunction = function testArrowFunction() {
   };
 };
 
-console.log('AulaArrowFunctions_2:', testArrowFunction());
+console.log('AulaArrowFunctions_2:', testArrowFunction()); //Valores padrão
+
+function somar(a) {
+  var b = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 3;
+  return a + b; //b = 3: foi definido um valor padrão
+}
+
+console.log('AulaValoresPadrao_1:', somar());
+console.log('AulaValoresPadrao_2:', somar(1));
+console.log('AulaValoresPadrao_3:', somar(1, 5));
+
+var somar2 = function somar2(a, b) {
+  return a + b;
+};
+
+console.log('AulaValoresPadrao_4:', somar2(2, 5)); //Desestruturação
+
+var user = {
+  nome: 'Kamila',
+  idade: 22,
+  endereco: {
+    rua: 'av. das amebas',
+    numero: 234,
+    cep: '99999-99',
+    cidade: 'São Paulo',
+    uf: 'SP'
+  }
+};
+console.log('AulaDesestruturacao_1:', user);
+var nome = user.nome,
+    uf = user.endereco.uf;
+console.log('AulaDesestruturacao_2:', nome);
+console.log('AulaDesestruturacao_3:', uf); //console.log('AulaDesestruturacao_4:', idade) não foi definida para desestruturação
+
+function mostraDados(_ref) {
+  var idade = _ref.idade,
+      cep = _ref.endereco.cep;
+  console.log('AulaDesestruturacao_4:', idade);
+  console.log('AulaDesestruturacao_5:', cep);
+}
+
+mostraDados(user);
