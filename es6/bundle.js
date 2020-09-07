@@ -243,4 +243,20 @@ var adress1 = _objectSpread(_objectSpread({}, adress), {}, {
   avenue: "av casas"
 });
 
-console.log('AulaOperadoresRestSpred_7:', adress1);
+console.log('AulaOperadoresRestSpred_7:', adress1); //Template literals
+
+var user2 = {
+  nome1: 'Kamila',
+  idade1: 22
+};
+var nome1 = user2.nome1,
+    idade1 = user2.idade1;
+console.log('AulaTemplateLiterals_1:', 'Meu nome é ' + nome1 + ' e tenho ' + idade1 + ' anos.');
+console.log('AulaTemplateLiterals_2:', "Meu nome \xE9 ".concat(nome1, " e tenho ").concat(idade1, " anos.")); //Object Short Syntax
+
+var user3 = {
+  nome1: nome1,
+  idade1: idade1,
+  empresa1: 'Acert'
+};
+console.log('AulaObjectShortSyntax_1:', user3);

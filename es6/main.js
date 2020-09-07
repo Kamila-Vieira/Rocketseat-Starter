@@ -155,3 +155,19 @@ const adress = {
 const adress1 = { ...adress, avenue: "av casas"};
 console.log('AulaOperadoresRestSpred_7:', adress1);
 
+//Template literals
+const user2 = {
+    nome1: 'Kamila',
+    idade1: 22,
+};
+const { nome1, idade1 } = user2;
+console.log('AulaTemplateLiterals_1:', 'Meu nome é ' + nome1 + ' e tenho ' + idade1 + ' anos.');
+console.log('AulaTemplateLiterals_2:', `Meu nome é ${nome1} e tenho ${idade1} anos.`);
+
+//Object Short Syntax
+const user3 = {
+    nome1,
+    idade1,
+    empresa1: 'Acert', 
+};
+console.log('AulaObjectShortSyntax_1:', user3);
