@@ -1,5 +1,15 @@
 "use strict";
 
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+function _objectWithoutProperties(source, excluded) { if (source == null) return {}; var target = _objectWithoutPropertiesLoose(source, excluded); var key, i; if (Object.getOwnPropertySymbols) { var sourceSymbolKeys = Object.getOwnPropertySymbols(source); for (i = 0; i < sourceSymbolKeys.length; i++) { key = sourceSymbolKeys[i]; if (excluded.indexOf(key) >= 0) continue; if (!Object.prototype.propertyIsEnumerable.call(source, key)) continue; target[key] = source[key]; } } return target; }
+
+function _objectWithoutPropertiesLoose(source, excluded) { if (source == null) return {}; var target = {}; var sourceKeys = Object.keys(source); var key, i; for (i = 0; i < sourceKeys.length; i++) { key = sourceKeys[i]; if (excluded.indexOf(key) >= 0) continue; target[key] = source[key]; } return target; }
+
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
@@ -184,4 +194,53 @@ function mostraDados(_ref) {
   console.log('AulaDesestruturacao_5:', cep);
 }
 
-mostraDados(user);
+mostraDados(user); //Operadores rest/spred
+//Rest em objetos
+
+var user1 = {
+  name: 'Kamila',
+  age: 22,
+  empresa: 'Acert'
+};
+
+var name = user1.name,
+    resto = _objectWithoutProperties(user1, ["name"]);
+
+console.log('AulaOperadoresRestSpred_1:', name);
+console.log('AulaOperadoresRestSpred_2:', resto); //Rest em vetores
+
+var vetor = [1, 3, 5, 7, 9];
+var a = vetor[0],
+    b = vetor[1],
+    c = vetor.slice(2);
+console.log('AulaOperadoresRestSpred_3:', a);
+console.log('AulaOperadoresRestSpred_4:', b);
+console.log('AulaOperadoresRestSpred_5:', c); //Rest em parâmetros de função
+
+function soma2(a, b) {
+  for (var _len = arguments.length, params = new Array(_len > 2 ? _len - 2 : 0), _key = 2; _key < _len; _key++) {
+    params[_key - 2] = arguments[_key];
+  }
+
+  return params.reduce(function (total, next) {
+    return total + next;
+  }); //return params; -> converte parametros de resto em array
+}
+
+console.log('AulaOperadoresRestSpred_6:', soma2(1, 2, 3, 5, 7)); //Spread em array
+
+var vet1 = [1, 3, 5];
+var vet2 = [2, 4, 6];
+var vet3 = [].concat(vet1, vet2);
+console.log('AulaOperadoresRestSpred_7:', vet3); //Spread em objeto
+
+var adress = {
+  avenue: "av das pampas",
+  number: 23
+};
+
+var adress1 = _objectSpread(_objectSpread({}, adress), {}, {
+  avenue: "av casas"
+});
+
+console.log('AulaOperadoresRestSpred_7:', adress1);

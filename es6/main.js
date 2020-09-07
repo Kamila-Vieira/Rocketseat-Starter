@@ -119,3 +119,39 @@ function mostraDados({ idade, endereco:{cep}}){
     console.log('AulaDesestruturacao_5:', cep);
 }
 mostraDados(user);
+
+//Operadores rest/spred
+//Rest em objetos
+const user1 = {
+    name: 'Kamila',
+    age: 22,
+    empresa: 'Acert'
+};
+const { name, ...resto } = user1;
+console.log('AulaOperadoresRestSpred_1:', name);
+console.log('AulaOperadoresRestSpred_2:', resto);
+//Rest em vetores
+const vetor = [1, 3, 5, 7, 9];
+const [a, b, ...c] = vetor;
+console.log('AulaOperadoresRestSpred_3:', a);
+console.log('AulaOperadoresRestSpred_4:', b);
+console.log('AulaOperadoresRestSpred_5:', c);
+//Rest em parâmetros de função
+function soma2(a, b, ...params){
+    return params.reduce((total, next) => total + next);
+    //return params; -> converte parametros de resto em array
+}
+console.log('AulaOperadoresRestSpred_6:', soma2(1, 2, 3, 5, 7));
+//Spread em array
+const vet1 = [1, 3, 5];
+const vet2 = [2, 4, 6];
+const vet3 = [...vet1, ...vet2];
+console.log('AulaOperadoresRestSpred_7:', vet3);
+//Spread em objeto
+const adress = {
+    avenue: "av das pampas",
+    number: 23,
+};
+const adress1 = { ...adress, avenue: "av casas"};
+console.log('AulaOperadoresRestSpred_7:', adress1);
+
