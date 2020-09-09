@@ -2,23 +2,20 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="style.css">
     <title>Aplicação</title>
 </head>
 <body>
-    <form action="" id="repo-form">
-        <input type="text" class="repository"/>
+    <form id="repo-form">
+        Digite o nome de Usuário GitHub:
+        <input type="text" name="user" required/>
+        Digite o nome do Repositório:
+        <input type="text" name="repository" required/>
         <button type="submit">Adicionar</button>
     </form>
-    <ul id="repo-list">
-        <li>
-            <img src="https://avatars1.githubusercontent.com/u/60486364?v=4" alt="">
-            <strong>Kamila Vieira - GitHub</strong>
-            <p>Meus repositórios do GitHub.</p>
-            <a href="https://github.com/Kamila-Vieira?tab=repositories" target="_blank">
-                Acessar
-            </a>
-        </li>
-    </ul>
+
+    <ul id="repo-list"></ul>
+
     <script src="./bundle.js"></script>
 </body>
 </html>
